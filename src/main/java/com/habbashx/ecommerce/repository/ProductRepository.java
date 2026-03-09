@@ -25,7 +25,7 @@ public interface ProductRepository extends JpaRepository<Product,Integer> {
             SELECT p FROM Product p JOIN p.categories c
             WHERE c.id = :categoryId AND p.isActive = true
             """)
-    Page<Product> findByCategoryId(Integer id , Pageable pageable);
+    Page<Product> findByCategoryId(@Param("categoryId")Integer id , Pageable pageable);
 
 
     @Query("""
